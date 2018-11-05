@@ -9,12 +9,13 @@ for (var i = 1; i < 89; i++){
         if (err) throw err;
         name++
         pic
-            .resize(Jimp.AUTO, 600) // resize
+            // .resize(Jimp.AUTO, 600) // resize
             // .quality(100) // set JPEG quality
-            .greyscale() // set greyscale
+            // .greyscale() // set greyscale
             // .contrast(1)
             // .posterize(2)
             pic.bitmap = floydSteinberg(pic.bitmap)
+            pic.resize(Jimp.AUTO, 600) // resize
             pic.write(`bitmaps/${name}.bmp`); // save
     });
 }
