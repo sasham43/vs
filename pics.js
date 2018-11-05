@@ -1,4 +1,5 @@
 var Jimp = require('jimp')
+var floydSteinberg = require('floyd-steinberg');
 
 // open a file called "lenna.png"
 var name = 0;
@@ -8,12 +9,13 @@ for (var i = 1; i < 89; i++){
         if (err) throw err;
         name++
         pic
-            .resize(600, Jimp.AUTO) // resize
+            .resize(Jimp.AUTO, 600) // resize
             // .quality(100) // set JPEG quality
             .greyscale() // set greyscale
-            .contrast(1)
-            .posterize(2)
-            .write(`bitmaps/${name}.bmp`); // save
+            // .contrast(1)
+            // .posterize(2)
+            pic.bitmap = floydSteinberg(pic.bitmap)
+            pic.write(`bitmaps/${name}.bmp`); // save
     });
 }
 
@@ -26,3 +28,11 @@ for (var i = 1; i < 89; i++){
 //         .contrast(1)
 //         .write('pic-small.bmp'); // save
 // });
+
+// Jimp.read(filename, function (err, image) {
+//     if (err) throw err;
+//     image.autocrop().scaleToFit(256, 256)
+//     //.rgba(false).greyscale().contrast(1).posterize(2)
+//     image.bitmap = floydSteinberg(image.bitmap)
+//     image.write("out.png")
+// })
