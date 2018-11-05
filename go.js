@@ -35,17 +35,7 @@ rp(url)
             pages.push({
                 page: i,
                 url: `http://www.tenmanga.com/chapter/VinlandSaga1/493846-${i}.html`
-            })
-            // var url = `http://www.tenmanga.com/chapter/VinlandSaga1/493846-${i}.html`;
-            // var scraper = new Scraper(url);
-            // var img_count = 0;
-
-            // scraper.scrape(function(image){
-            //     image.name = `${i}-${img_count}`;
-            //     image.saveTo = '/Users/sashakramer/art/vs/images/';
-            //     image.save();
-            //     img_count++
-            // });
+            });
         }
 
         pages.forEach(function(page){
@@ -57,9 +47,7 @@ rp(url)
                     image.saveTo = '/Users/sashakramer/art/vs/images/';
                     image.save();
                 }
-                img_count++
-                // console.log('image:', img_count, image)
-                // img_count++
+                img_count++;
             });
         })
     })
