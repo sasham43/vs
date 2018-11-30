@@ -10,8 +10,10 @@
   "author": "",
   "license": "ISC",
   "dependencies": {
+    "atkinson-dither": "0.0.1",
     "cheerio": "^1.0.0-rc.2",
     "floyd-steinberg": "^1.0.5",
+    "image-dither": "^1.0.1",
     "image-scraper": "^0.2.1",
     "jimp": "^0.5.6",
     "puppeteer": "^1.10.0",
