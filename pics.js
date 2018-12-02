@@ -3,10 +3,10 @@ var floydSteinberg = require('floyd-steinberg');
 
 var AtkinsonDither = require('atkinson-dither');
 
-var Dither = require('image-dither');
-
-var options = {matrix: Dither.matrices.sierra2};
-var dither = new Dither(options);
+// var Dither = require('image-dither');
+//
+// var options = {matrix: Dither.matrices.sierra2};
+// var dither = new Dither(options);
 
 // var ditheredImg = dither.dither(img, imgWidth);
 
@@ -31,20 +31,9 @@ for (var i = 1; i < 30; i++){
             // pic.resize(Jimp.AUTO, 600) // resize
             //
             // pic.write(`atkinson/${name}.bmp`); // save
-            try {
-                new Jimp(pic.bitmap.data, pic.bitmap.width, function(err, new_container){
-                    if (err) console.log('fail', err)
-                    console.log('pic2')
-                    for (i in new_img) {
-                        new_container.bitmap.data[i] = new_img[i]
-                    }
-                    new_container.resize(Jimp.AUTO, 600) // resize
+            new_container.resize(Jimp.AUTO, 600) // resize
 
-                    new_container.write(`atkinson/${name}.bmp`); // save
-                })
-            } catch (e){
-                console.log('super fail')
-            }
+            new_container.write(`atkinson/${name}.bmp`); // save
 
     });
 }

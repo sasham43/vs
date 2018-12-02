@@ -17,6 +17,7 @@
     "image-scraper": "^0.2.1",
     "jimp": "^0.5.6",
     "puppeteer": "^1.10.0",
-    "request-promise": "^4.2.2"
+    "request-promise": "^4.2.2",
+    "rgbquant": "^1.1.2"
   }
 }
