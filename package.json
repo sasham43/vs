@@ -11,6 +11,7 @@
   "license": "ISC",
   "dependencies": {
     "@google-cloud/vision": "^0.23.0",
+    "canvas": "^2.1.0",
     "cheerio": "^1.0.0-rc.2",
     "floyd-steinberg": "^1.0.5",
     "image-scraper": "^0.2.1",
