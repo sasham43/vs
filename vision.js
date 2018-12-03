@@ -18,7 +18,7 @@ client
     const labels = results[0].textAnnotations;
 
     console.log('Labels:');
-    labels.forEach(label => console.log(label.description, label.boundingPoly.vertices));
+    // labels.forEach(label => console.log(label.description, label.boundingPoly.vertices));
 
     // read image
     const myimg = Canvas.loadImage(file)
@@ -38,16 +38,28 @@ client
         // 1 - top right
         // 2 - bottom right
         // 3 - bottom left
+        labels.forEach((label, index)=>{
+            if(index != 0){
+                var box = label.boundingPoly.vertices;
+                var width = box[1].x - box[0].x
+                var height = box[2].y - box[0].y
+                console.log(label.description, box,  width, height)
+                ctx.fillStyle = '#FFF'
+                ctx.fillRect(box[0].x, box[0].y, width, height)
+                ctx.fillStyle = '#000'
+                ctx.fillText(label.description, box[0].x, box[0].y)
+            }
+        })
 
-        var boy = [ { x: 246, y: 655 },
-                  { x: 269, y: 655 },
-                  { x: 269, y: 665 },
-                  { x: 246, y: 665 } ]
-
-        var width = boy[1].x - boy[0].x
-        var height = boy[2].y - boy[0].y
-        console.log('widht', width, height)
-        ctx.fillRect(boy[0].x, boy[0].y, width, height)
+        // var boy = [ { x: 246, y: 655 },
+        //           { x: 269, y: 655 },
+        //           { x: 269, y: 665 },
+        //           { x: 246, y: 665 } ]
+        //
+        // var width = boy[1].x - boy[0].x
+        // var height = boy[2].y - boy[0].y
+        // console.log('widht', width, height)
+        // ctx.fillRect(boy[0].x, boy[0].y, width, height)
 
 
         ctx.save() // Save the default state
