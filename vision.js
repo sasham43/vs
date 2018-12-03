@@ -31,7 +31,25 @@ client
         const canvas = Canvas.createCanvas(image.width, image.height)
         const ctx = canvas.getContext('2d')
         ctx.drawImage(image, 0, 0)
-        ctx.fillRect(0, 0, 150, 150) // Draw a rectangle with default settings
+        // ctx.fillRect(269, 655, 5, 5) // Draw a rectangle with default settings
+
+        // test
+        // 0 - top left
+        // 1 - top right
+        // 2 - bottom right
+        // 3 - bottom left
+
+        var boy = [ { x: 246, y: 655 },
+                  { x: 269, y: 655 },
+                  { x: 269, y: 665 },
+                  { x: 246, y: 665 } ]
+
+        var width = boy[1].x - boy[0].x
+        var height = boy[2].y - boy[0].y
+        console.log('widht', width, height)
+        ctx.fillRect(boy[0].x, boy[0].y, width, height)
+
+
         ctx.save() // Save the default state
 
         // write file
