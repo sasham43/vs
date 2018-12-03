@@ -3,21 +3,37 @@ var floydSteinberg = require('floyd-steinberg');
 
 // open a file called "lenna.png"
 var name = 0;
-for (var i = 1; i < 89; i++){
-       
-    Jimp.read(`images/${i}-0.jpg`, (err, pic) => {
+// for (var i = 1; i < 89; i++){
+//
+//     Jimp.read(`images/${i}-0.jpg`, (err, pic) => {
+//         if (err) throw err;
+//         name++
+//         pic
+//             // .resize(Jimp.AUTO, 600) // resize
+//             // .quality(100) // set JPEG quality
+//             // .greyscale() // set greyscale
+//             // .contrast(1)
+//             // .posterize(2)
+//             pic.bitmap = floydSteinberg(pic.bitmap)
+//             pic.resize(Jimp.AUTO, 600) // resize
+//             pic.write(`bitmaps/${name}.bmp`); // save
+//     });
+// }
+
+var input = `images/cover.png`
+var output = `images/cover.bmp`
+
+writeImage(input, output)
+
+
+function writeImage(path, output){
+    Jimp.read(path, (err, pic)=>{
         if (err) throw err;
-        name++
-        pic
-            // .resize(Jimp.AUTO, 600) // resize
-            // .quality(100) // set JPEG quality
-            // .greyscale() // set greyscale
-            // .contrast(1)
-            // .posterize(2)
-            pic.bitmap = floydSteinberg(pic.bitmap)
-            pic.resize(Jimp.AUTO, 600) // resize
-            pic.write(`bitmaps/${name}.bmp`); // save
-    });
+
+        pic.bitmap = floydSteinberg(pic.bitmap)
+        pic.resize(Jimp.AUTO, 600)
+        pic.write(output)
+    })
 }
 
 // Jimp.read('images/1-0.jpg', (err, pic) => {
